@@ -24,11 +24,12 @@ function generatePassword() {
 //password must be 8 characters
 if (length < 8){
   alert('Password must be min of 8 characters')
+  return ('Lenght entered less than 8 - Password not generated');
 }
 //password must be less than 129 characters
 if (length > 129) {
   alert('Password must be less than 128 characters')
-
+  return ('Lenght entered more than 128 characters - Password not generated');
 }
 
 //confirmation prompts for user to confirm 
