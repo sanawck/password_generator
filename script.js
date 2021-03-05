@@ -12,31 +12,35 @@ let upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M',
 let lowerCasedCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 //numbers 1-9
 let numericCharacters = ['0','1','2','3','4','5','6','7','8','9']; 
+//possible arrays users may want generated into their password
 let possibleCharacters = [];
+//used to hold a generated password
 let generatedPassword = [];
+//this is to used to hold the running count included in the password
 let count = 0;
 
 
-//functions for calling to get a password generated
+//functions for calling to begin getting a password generated
 function generatePassword() {
   let length = parseInt( 
     prompt('How many characters would you like your password to be?')); 
   if (isNaN (length) === true ) {
     alert('Password must be a number');
-    return ('lenght entered is not a number - Password not generated');
+    return ('length entered is not a number - Password not generated');
   }  
+//if statements to add conditions for the password
 //password must be 8 characters
 if (length < 8){
   alert('Password must be min of 8 characters')
-  return ('Lenght entered less than 8 - Password not generated');
+  return ('Length entered less than 8 - Password not generated');
 }
 //password must be less than 129 characters
 if (length > 129) {
   alert('Password must be less than 128 characters')
-  return ('Lenght entered more than 128 characters - Password not generated');
+  return ('Length entered more than 128 characters - Password not generated');
 }
 
-//confirmation prompts for user to confirm 
+//confirmation prompts for user to confirm before proceeding to meet the criterias
 let hasLowerCasedCharacters = confirm (
   'press ok to confirm adding lower case characters '
 );
@@ -50,7 +54,7 @@ let hasSpecialCharacters = confirm(
   'press ok to confirm adding special characters'
 );
 
-//select character types - at least one has to be selected
+//select character types - at least one has to be selected to move forward- true or false
 if (hasLowerCasedCharacters === false &&
     hasUpperCasedCharacters === false &&
     hasNumericCharacters === false &&
@@ -59,7 +63,7 @@ if (hasLowerCasedCharacters === false &&
       return ('choice entered must include one character type - Password not generated');
     }
  
- //generate random password including chosen character types
+ //generate random password with the chosen character types
 if (hasLowerCasedCharacters === true){
   possibleCharacters = possibleCharacters.concat (lowerCasedCharacters);
   generatedPassword.push(lowerCasedCharacters[(Math.floor(Math.random()*lowerCasedCharacters.length))]);
@@ -82,7 +86,7 @@ if (hasSpecialCharacters === true){
   count++;
 } 
 
-//loops for filling in the rest of the password
+//loops for filling in the rest of the password with any other character types
 for(let i = count; i < length; i++){
 generatedPassword.push(possibleCharacters[(Math.floor(Math.random()*possibleCharacters.length))]);
 }
