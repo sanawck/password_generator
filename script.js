@@ -12,6 +12,10 @@ let upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M',
 let lowerCasedCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 //numbers 1-9
 let numericCharacters = ['0','1','2','3','4','5','6','7','8','9']; 
+let possibleCharacters = [];
+let generatedPassword = [];
+let count = 0;
+
 
 //functions for calling to get a password generated
 function generatePassword() {
@@ -54,8 +58,37 @@ if (hasLowerCasedCharacters === false &&
       alert ('must select one character type');
       return ('choice entered must include one character type - Password not generated');
     }
+ 
+ //generate random password including chosen character types
+if (hasLowerCasedCharacters === true){
+  possibleCharacters = possibleCharacters.concat (lowerCasedCharacters);
+  generatedPassword.push(lowerCasedCharacters[(Math.floor(Math.random()*lowerCasedCharacters.length))]);
+  count++;
+} 
+
+if (hasUpperCasedCharacters === true){
+  possibleCharacters = possibleCharacters.concat (UpperCasedCharacters);
+  generatedPassword.push(UpperCasedCharacters[(Math.floor(Math.random()*UpperCasedCharacters.length))]);
+  count++;
+} 
+if (hasNumericCharacters === true){
+  possibleCharacters = possibleCharacters.concat (numericCharacters);
+  generatedPassword.push(numericCharacters[(Math.floor(Math.random()*numericCharacters.length))]);
+  count++;
+} 
+if (hasSpecialCharacters === true){
+  possibleCharacters = possibleCharacters.concat (specialCharacters);
+  generatedPassword.push(specialCharacters[(Math.floor(Math.random()*specialCharacters.length))]);
+  count++;
+} 
+
+//loops for filling in the rest of the password
+for(let i = count; i < length; i++){
+generatedPassword.push(possibleCharacters[(Math.floor(Math.random()*possibleCharacters.length))]);
 }
 
+return (generatedPassword.join(''));
+}
 
 // Write password to the #password input
 function writePassword() {
