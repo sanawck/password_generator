@@ -45,7 +45,17 @@ let hasUpperCasedCharacters = confirm (
 let hasSpecialCharacters = confirm(
   'press ok to confirm adding special characters'
 );
+
+//select character types - at least one has to be selected
+if (hasLowerCasedCharacters === false &&
+    hasUpperCasedCharacters === false &&
+    hasNumericCharacters === false &&
+    hasSpecialCharacters === false ){
+      alert ('must select one character type');
+      return ('choice entered must include one character type - Password not generated');
+    }
 }
+
 
 // Write password to the #password input
 function writePassword() {
