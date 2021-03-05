@@ -1,15 +1,6 @@
 // Assignment Code
 let generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  let password = generatePassword();
-  let passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
@@ -24,9 +15,12 @@ let numericCharacters = ['0','1','2','3','4','5','6','7','8','9'];
 
 //functions for calling to get a password generated
 function generatePassword() {
-  let length = 8 ( // confused about this section?
-    promt('How many characters would you like your password to be?')
-  );
+  let length = parseInt( 
+    prompt('How many characters would you like your password to be?')); 
+  if (isNaN (length) === true ) {
+    alert('Password must be a number');
+    return ('lenght entered is not a number - Password not generated');
+  }  
 //password must be 8 characters
 if (length < 8){
   alert('Password must be min of 8 characters')
@@ -36,7 +30,7 @@ if (length > 129) {
   alert('Password must be less than 128 characters')
 
 }
-}
+
 //confirmation prompts for user to confirm 
 let hasLowerCasedCharacters = confirm (
   'press ok to confirm adding lower case characters '
@@ -50,3 +44,13 @@ let hasUpperCasedCharacters = confirm (
 let hasSpecialCharacters = confirm(
   'press ok to confirm adding special characters'
 );
+}
+
+// Write password to the #password input
+function writePassword() {
+  let password = generatePassword();
+  let passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
+}
