@@ -23,11 +23,18 @@ var lowerCasedCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m',
 var numericCharacters = ['0','1','2','3','4','5','6','7','8','9']; 
 
 //functions for calling to get a password generated
-function getPasswordOptions() {
-  var length =  (
+function generatePassword() {
+  var length = 8 ( // confused about this section?
     promt('How many characters would you like your password to be?')
   );
-
+//password must be 8 characters
+if (length < 8){
+  alert('Password must be min of 8 characters')
+}
+//password must be less than 129 characters
+if (length > 129) {
+  alert('Password must be less than 128 characters')
+}
 
 
 }
