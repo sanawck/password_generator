@@ -16,7 +16,7 @@ let numericCharacters = ['0','1','2','3','4','5','6','7','8','9'];
 let possibleCharacters = [];
 //used to hold a generated password
 let generatedPassword = [];
-//this is to used to hold the running count included in the password
+//this is used to hold the running count included in the password
 let count = 0;
 
 
@@ -29,7 +29,7 @@ function generatePassword() {
     return ('length entered is not a number - Password not generated');
   }  
 //if statements to add conditions for the password
-//password must be 8 characters
+//password must be 8 characters to meet criteria
 if (length < 8){
   alert('Password must be min of 8 characters')
   return ('Length entered less than 8 - Password not generated');
@@ -54,7 +54,7 @@ let hasSpecialCharacters = confirm(
   'press ok to confirm adding special characters'
 );
 
-//select character types - at least one has to be selected to move forward- true or false
+//select character types - at least one has to be selected to move forward into generating a password
 if (hasLowerCasedCharacters === false &&
     hasUpperCasedCharacters === false &&
     hasNumericCharacters === false &&
@@ -63,7 +63,7 @@ if (hasLowerCasedCharacters === false &&
       return ('choice entered must include one character type - Password not generated');
     }
  
- //generate random password with the chosen character types
+ //generate random password with the chosen character types by user
 if (hasLowerCasedCharacters === true){
   possibleCharacters = possibleCharacters.concat (lowerCasedCharacters);
   generatedPassword.push(lowerCasedCharacters[(Math.floor(Math.random()*lowerCasedCharacters.length))]);
@@ -86,11 +86,12 @@ if (hasSpecialCharacters === true){
   count++;
 } 
 
-//loops for filling in the rest of the password with any other character types
+//loops for procuring a password with the chosen selections in the number selected by the user
 for(let i = count; i < length; i++){
 generatedPassword.push(possibleCharacters[(Math.floor(Math.random()*possibleCharacters.length))]);
 }
 
+//generate the final password
 return (generatedPassword.join(''));
 }
 
