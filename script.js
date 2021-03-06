@@ -91,7 +91,7 @@ for(let i = count; i < length; i++){
 generatedPassword.push(possibleCharacters[(Math.floor(Math.random()*possibleCharacters.length))]);
 }
 
-//generate the final password
+//generate the final password for user
 return (generatedPassword.join(''));
 }
 
