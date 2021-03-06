@@ -1,4 +1,7 @@
+https://sanawck.github.io/password_generator/.
+
 # password_generator
+
 homework 03
 For this assignment, i will be creating a password generator that will meet the below criterias. I will be implementing materials we covered in our Javascript portion in order to make this successful. I will be creating variables, using functions to call on those objects and essentially get them to respond to the user prompts and eventually create a random password. I like the idea of this assignment as it lets me use skills to create a item that can be altered and serve as a fun prompter. However, i found it to be very difficult and needed to use external sources like google and tutoring service to complete it. 
 
